@@ -1,259 +1,88 @@
-// ============================================
-// VARIÁVEIS GLOBAIS DE BACKGROUND
-// ============================================
-const BACKGROUND_COLORS = {
-    navBgDark: '#191919',
-    navBgLight: '#fcfcfcff',
-    containerBgDark: '#111',
-    containerBgLight: '#f9f9f9ff',
-    trilhoBgDark: '#292929',
-    textColorDark: '#fff',
-    textColorLight: '#111'
-
-};
-
-// ============================================
-// FUNÇÃO PARA CRIAR TEMAS DE FORMA CONSISTENTE
-// ============================================
-function criarTema(primariaLight, primariaDark, corBordaLight, corBordaDark) {
-    return {
-        light: {
-            primaria: primariaLight,
-            navBorder: primariaLight,
-            navText: primariaLight,
-            trilhoBg: primariaLight,
-            navBg: BACKGROUND_COLORS.navBgLight,
-            containerBg: BACKGROUND_COLORS.containerBgLight,
-            textColor: BACKGROUND_COLORS.textColorLight
-        },
-        dark: {
-            primaria: primariaDark,
-            navBorder: corBordaDark,
-            navText: corBordaDark,
-            trilhoBg: BACKGROUND_COLORS.trilhoBgDark,
-            navBg: BACKGROUND_COLORS.navBgDark,
-            containerBg: BACKGROUND_COLORS.containerBgDark,
-            textColor: BACKGROUND_COLORS.textColorDark
-        }
-    };
-}
-
-// ============================================
-// DEFINIÇÃO DOS TEMAS
-// ============================================
+// Temas com apenas uma cor cada
 const temas = {
-    padrao: criarTema('#6a0dad', '#6a0dad', '#6a0dad', '#9b4dca'),
-    laranja: criarTema('#ff6b35', '#ff6b35', '#ff6b35', '#ff9e6d'),
-    azul: criarTema('#2196f3', '#2196f3', '#2196f3', '#64b5f6'),
-    amarelo: criarTema('#ffd700', '#ffd700', '#ffd700', '#fff176'),
-    rosa: criarTema('#e91e63', '#e91e63', '#e91e63', '#f48fb1'),
-    vermelho: criarTema('#f44336', '#ff2515ff', '#f44336', '#ed2a2aff'),
-    verde: criarTema('#4caf50', '#4caf50', '#4caf50', '#81c784'),
-    azulEscuro: criarTema('#0d47a1', '#0d47a1', '#0d47a1', '#5472d3')
+    padrao: '#6a0dad',
+    laranja: '#ff6b35', 
+    azul: '#2196f3',
+    amarelo: '#ffd700',
+    rosa: '#e91e63',
+    vermelho: '#ff2515',
+    verde: '#4caf50',
+    azulEscuro: '#0d47a1'
 };
 
-// ============================================
-// CONFIGURAÇÃO PRINCIPAL
-// ============================================
-document.addEventListener('DOMContentLoaded', function () {
-    // Elementos DOM
-    const toggleThemeBtn = document.getElementById('toggleTheme');
-    const temaCorSelect = document.getElementById('temaCor');
-    const navBar = document.getElementById('navBar');
-    const container = document.querySelector('.container');
-    const trilho = document.getElementById('trilho');
-    const indicador = document.getElementById('indicador');
-    const temaImg = document.getElementById('temaImg');
-    const navTexts = document.querySelectorAll('.navText');
+document.addEventListener('DOMContentLoaded', function() {
+    let tema = localStorage.getItem('tema') || 'padrao';
+    let modo = localStorage.getItem('modo') || 'light';
     
-
-    // Estado atual
-    let temaAtual = 'padrao';
-    let modoAtual = 'light';
-
-    // ============================================
-    // FUNÇÕES AUXILIARES
-    // ============================================
+    const cor = temas[tema];
+    const select = document.getElementById('temaCor');
+    if (select) select.value = tema;
     
-    /**
-     * Salva as preferências do usuário no localStorage
-     */
-    function salvarPreferencias() {
-        localStorage.setItem('tema', temaAtual);
-        localStorage.setItem('modo', modoAtual);
-    }
-
-    /**
-     * Carrega as preferências salvas do usuário
-     */
-    function carregarPreferencias() {
-        const temaSalvo = localStorage.getItem('tema');
-        const modoSalvo = localStorage.getItem('modo');
-
-        if (temaSalvo && temas[temaSalvo]) {
-            temaAtual = temaSalvo;
-            if (temaCorSelect) temaCorSelect.value = temaSalvo;
-        }
-
-        if (modoSalvo && (modoSalvo === 'light' || modoSalvo === 'dark')) {
-            modoAtual = modoSalvo;
-        } else {
-            // Verificar preferência do sistema
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            modoAtual = prefersDark ? 'dark' : 'light';
-        }
-    }
-
-    /**
-     * Aplica o tema atual a todos os elementos da página
-     */
-    function aplicarTema() {
-        const config = temas[temaAtual][modoAtual];
-
-        // Aplicar classes CSS
-        if (container) container.className = `container ${modoAtual}`;
-        if (navBar) navBar.className = modoAtual;
-        if (trilho) trilho.className = `trilho ${modoAtual}`;
-
-        // Aplicar estilos diretamente
+    function aplicar() {
+        localStorage.setItem('tema', tema);
+        localStorage.setItem('modo', modo);
+        
+        const isDark = modo === 'dark';
+        const bg = isDark ? '#111' : '#f9f9f9';
+        const navBg = isDark ? '#191919' : '#fcfcfc';
+        const text = isDark ? '#fff' : '#111';
+        const border = isDark ? 
+            (tema === 'vermelho' ? '#ed2a2a' : 
+             tema === 'padrao' ? '#9b4dca' : cor) : cor;
+        const trilhoBg = isDark ? '#292929' : cor;
+        
+        // Aplicar estilos
+        const container = document.querySelector('.container');
         if (container) {
-            container.style.backgroundColor = config.containerBg;
-            container.style.color = config.textColor;
+            container.style.backgroundColor = bg;
+            container.style.color = text;
+            container.className = `container ${modo}`;
         }
-
-        if (navBar) {
-            navBar.style.backgroundColor = config.navBg;
-            navBar.style.borderBottomColor = config.navBorder;
+        
+        const nav = document.getElementById('navBar');
+        if (nav) {
+            nav.style.backgroundColor = navBg;
+            nav.style.borderBottomColor = border;
+            nav.className = modo;
         }
-
+        
+        const trilho = document.getElementById('trilho');
         if (trilho) {
-            trilho.style.backgroundColor = config.trilhoBg;
+            trilho.style.backgroundColor = trilhoBg;
+            trilho.className = `trilho ${modo}`;
         }
-
-        // Atualizar botão de toggle
-        if (toggleThemeBtn) {
-            toggleThemeBtn.textContent = modoAtual === 'light' ? 'Modo Escuro' : 'Modo Claro';
-            toggleThemeBtn.style.backgroundColor = config.primaria;
+        
+        const btn = document.getElementById('toggleTheme');
+        if (btn) {
+            btn.textContent = isDark ? 'Modo Claro' : 'Modo Escuro';
+            btn.style.backgroundColor = cor;
         }
-
-        // Atualizar ícone do tema
-        if (temaImg) {
-            temaImg.src = modoAtual === 'light' ? "./img/sun.png" : "./img/moon.png";
-        }
-
-        // Atualizar textos de navegação
-        navTexts.forEach(navText => {
-            navText.className = `navText ${modoAtual}`;
-            navText.style.color = config.navText;
-        });
-
-        // Estilizar pseudo-elementos
-        let pseudoStyle = document.getElementById("navtextAfterStyle");
-        if (!pseudoStyle) {
-            pseudoStyle = document.createElement("style");
-            pseudoStyle.id = "navtextAfterStyle";
-            document.head.appendChild(pseudoStyle);
-        }
-
-        pseudoStyle.innerHTML = `
-            .navText.${modoAtual}::after {
-                background-color: ${config.navText} !important;
-            }
-        `;
-
-        // Aplicar cor primária a outros links
-        document.querySelectorAll('a:not(.navText)').forEach(link => {
-            link.style.color = config.primaria;
-        });
-
-        // Definir variável CSS global
-        document.documentElement.style.setProperty('--cor-primaria', config.primaria);
-    }
-
-    /**
-     * Alterna entre modo claro e escuro
-     */
-    function alternarModo() {
-        modoAtual = modoAtual === 'light' ? 'dark' : 'light';
-        salvarPreferencias();
-        aplicarTema();
-    }
-
-    /**
-     * Muda o tema de cores
-     * @param {string} novoTema - Nome do novo tema
-     */
-    function mudarTema(novoTema) {
-        if (temas[novoTema]) {
-            temaAtual = novoTema;
-            salvarPreferencias();
-            aplicarTema();
-        } else {
-            console.warn(`Tema "${novoTema}" não encontrado. Usando tema padrão.`);
-            temaAtual = 'padrao';
-            salvarPreferencias();
-            aplicarTema();
-        }
-    }
-
-    // ============================================
-    // INICIALIZAÇÃO
-    // ============================================
-    
-    // Carregar preferências do usuário
-    carregarPreferencias();
-    
-    // Aplicar tema inicial
-    aplicarTema();
-
-    // ============================================
-    // EVENT LISTENERS
-    // ============================================
-    
-    // Botão de alternar tema
-    if (toggleThemeBtn) {
-        toggleThemeBtn.addEventListener('click', alternarModo);
-    }
-
-    // Seletor de cor do tema
-    if (temaCorSelect) {
-        temaCorSelect.addEventListener('change', function () {
-            mudarTema(this.value);
+        
+        const img = document.getElementById('temaImg');
+        if (img) img.src = isDark ? "./img/moon.png" : "./img/sun.png";
+        
+        // Nav texts
+        document.querySelectorAll('.navText').forEach(el => {
+            el.style.color = border;
+            el.className = `navText ${modo}`;
         });
     }
-
-    // Trilho para alternar tema
-    if (trilho) {
-        trilho.addEventListener('click', alternarModo);
-    }
-
-    // ============================================
-    // EXPOSIÇÃO DE FUNÇÕES PARA DEBUG (OPCIONAL)
-    // ============================================
-    window.debugTema = {
-        getTemaAtual: () => temaAtual,
-        getModoAtual: () => modoAtual,
-        getTemasDisponiveis: () => Object.keys(temas),
-        alternarModo: alternarModo,
-        mudarTema: mudarTema,
-        aplicarTema: aplicarTema
-    };
-
-    console.log('Sistema de temas carregado. Use window.debugTema para debug.');
-});
-
-// ============================================
-// DETECÇÃO DE PREFERÊNCIA DO SISTEMA DINÂMICA
-// ============================================
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-
-    if (!localStorage.getItem('modo')) {
-        const modoPreferido = e.matches ? 'dark' : 'light';
-        console.log(`Preferência do sistema alterada para: ${modoPreferido}`);
-
-        if (typeof window.debugTema !== 'undefined' && window.debugTema.mudarTema) {
-
-            window.debugTema.mudarTema(window.debugTema.getTemaAtual());
-        }
-    }
+    
+    // Eventos
+    document.getElementById('toggleTheme')?.addEventListener('click', () => {
+        modo = modo === 'light' ? 'dark' : 'light';
+        aplicar();
+    });
+    
+    document.getElementById('trilho')?.addEventListener('click', () => {
+        modo = modo === 'light' ? 'dark' : 'light';
+        aplicar();
+    });
+    
+    select?.addEventListener('change', function() {
+        tema = this.value;
+        aplicar();
+    });
+    
+    aplicar();
 });
