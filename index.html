@@ -6,54 +6,81 @@
     <title>Luis Henrique</title>
     <link rel="stylesheet" href="./css/theme.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+
 </head>
 
 <body>
+
+    <div id="tsparticles"></div>
+
     <header id="navBar" class="light">
-        <div id="logo"></div>
+        <div class="logoBox">
+            <div id="logo"></div>
+        </div>
+
 
         <div id="textA">
-            <a class="navText light" href="#back">Inicio</a>
-            <a class="navText light" href="#sobreNos">Sobre mim</a>
+            <a class="navText light" href="#startBox">Inicio</a>
+            <a class="navText light" href="#sobreMim">Sobre mim</a>
             <a class="navText light" href="#projetos">Projetos</a>
             <a class="navText light" href="#contatos">Contato</a>
         </div>
 
-        <div class="tema-wrapper">
-            <span class="temasSelectCor" id="previewCor"></span>
+        <div class="temasBox">
+            <div class="tema-wrapper">
 
-            <select id="temaCor" class="temasSelect">
-                <option value="padrao">Padrão</option>
-                <option value="laranja">Laranja</option>
-                <option value="azul">Azul</option>
-                <option value="amarelo">Amarelo</option>
-                <option value="rosa">Rosa</option>
-                <option value="vermelho">Vermelho</option>
-                <option value="verde">Verde</option>
-                <option value="azulEscuro">Azul Escuro</option>
-            </select>
-        </div>
+                <button id="abrirTemas" class="btn">🎨 Escolher tema</button>
 
-        <div class="trilho light" id="trilho">
-            <div class="indicador" id="indicador">
-                <img src="./img/sun.png" id="temaImg">
+                <div class="tema-modal" id="temaModal">
+                    <div class="tema-box">
+                        <h3>Escolha um tema</h3>
+
+                        <div class="tema-grid">
+                            <button class="temaBtn" data-tema="padrao" style="--cor:#6a0dad">Padrão</button>
+                            <button class="temaBtn" data-tema="laranja" style="--cor:#ff6b35">Laranja</button>
+                            <button class="temaBtn" data-tema="azul" style="--cor:#2196f3">Azul</button>
+                            <button class="temaBtn" data-tema="amarelo" style="--cor:#ffd700">Amarelo</button>
+                            <button class="temaBtn" data-tema="rosa" style="--cor:#e91e63">Rosa</button>
+                            <button class="temaBtn" data-tema="vermelho" style="--cor:#ff2515">Vermelho</button>
+                            <button class="temaBtn" data-tema="verde" style="--cor:#4caf50">Verde</button>
+                            <button class="temaBtn" data-tema="azulEscuro" style="--cor:#0d47a1">Azul Escuro</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trilho light" id="trilho">
+                <div class="indicador" id="indicador">
+                    <img src="./assets/img/sun.png" id="temaImg">
+                </div>
             </div>
         </div>
     </header>
 
-    <div class="container light">
-        <h1>Exemplo de Tema</h1>
+    <div class="container light" id="startBox">
+        <section class="startBox" >
+            <div class="startBoxText">
+                <h1>Portifólio</h1>
+                <h2>Luis Henrique</h2>
+                <div class="txt" id="frase">
+                    <span class="text"></span><span class="cursor"></span>
 
-        <button class="btn" id="toggleTheme">Trocar tema</button>
+                </div>
+            </div>
 
-        <br><br>
+        </section>
 
+        <section class="linha"></section>
 
-
-        <p>Este é um exemplo de parágrafo para demonstrar a troca de temas.</p>
-        <a href="#">Este é um link de exemplo</a>
+        <section class="sobreBox" id="sobreMim">
+            <h1>Sobre Mim</h1>
+            <section class="linhaMenor"></section>
+        </section>
     </div>
+    <script src="./js/theme.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
-<script src="./js/theme.js"></script>
