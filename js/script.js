@@ -55,22 +55,22 @@ function wait(ms) {
 
 const ling = [
     
-        { image: '../assets/img/lings/java.png',    text: 'Java',         tipo: 'dev' },
-        { image: '../assets/img/lings/python.png',  text: 'Python',       tipo: 'dev' },
-        { image: '../assets/img/lings/php.png',     text: 'PHP',          tipo: 'dev' },
-        { image: '../assets/img/lings/laravel.png', text: 'Laravel',      tipo: 'dev' },
-        { image: '../assets/img/lings/node.png',    text: 'Node.js',      tipo: 'dev' },
-        { image: '../assets/img/lings/web.png',     text: 'WEB',          tipo: 'dev' },
-        { image: '../assets/img/lings/react.png',   text: 'React Native', tipo: 'dev' },
+        { image: './assets/img/lings/java.png',    text: 'Java',         tipo: 'dev' },
+        { image: './assets/img/lings/python.png',  text: 'Python',       tipo: 'dev' },
+        { image: './assets/img/lings/php.png',     text: 'PHP',          tipo: 'dev' },
+        { image: './assets/img/lings/laravel.png', text: 'Laravel',      tipo: 'dev' },
+        { image: './assets/img/lings/node.png',    text: 'Node.js',      tipo: 'dev' },
+        { image: './assets/img/lings/web.png',     text: 'WEB',          tipo: 'dev' },
+        { image: './assets/img/lings/react.png',   text: 'React Native', tipo: 'dev' },
 
-        { image: '../assets/img/lings/mysql.png',   text: 'MySQL',        tipo: 'database' },
-        { image: '../assets/img/lings/sql.png',     text: 'SQL',          tipo: 'database' },
-        { image: '../assets/img/lings/mongo.png',   text: 'MongoDB',      tipo: 'database' },
+        { image: './assets/img/lings/mysql.png',   text: 'MySQL',        tipo: 'database' },
+        { image: './assets/img/lings/sql.png',     text: 'SQL',          tipo: 'database' },
+        { image: './assets/img/lings/mongo.png',   text: 'MongoDB',      tipo: 'database' },
 
-        { image: '../assets/img/lings/git.png', text: 'Git',  tipo: 'ferramentas' },
-        { image: '../assets/img/lings/github.png', text: 'Github',  tipo: 'ferramentas' },
-        { image: '../assets/img/lings/photoshop.png', text: 'Photoshop',  tipo: 'ferramentas' },
-        { image: '../assets/img/lings/canva.png',    text: 'Canva',     tipo: 'ferramentas' }
+        { image: './assets/img/lings/git.png', text: 'Git',  tipo: 'ferramentas' },
+        { image: './assets/img/lings/github.png', text: 'Github',  tipo: 'ferramentas' },
+        { image: './assets/img/lings/photoshop.png', text: 'Photoshop',  tipo: 'ferramentas' },
+        { image: './assets/img/lings/canva.png',    text: 'Canva',     tipo: 'ferramentas' }
 ]
 
 ling.forEach(item => {
