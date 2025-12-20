@@ -85,3 +85,53 @@ ling.forEach(item => {
     </div>
   `;
 });
+
+let num = 0;
+
+const sobre = [
+    [{ id: 1, image: './assets/img/sobre/etec.png', text: 'Escolaridade', desc: 'Sou formado como Técnico em Administração e Técnico em Desenvolvimento de Sistemas pela ETEC de Guaianazes, onde adquiri base sólida em gestão, tecnologia, lógica de programação e desenvolvimento de sistemas voltados para soluções reais.' }],
+    [{ id: 2, image: './assets/img/sobre/cna.png', text: 'Inglês', desc: 'Curso de inglês pelo CNA, com nível intermediário, capacitado para leitura técnica, compreensão de documentação e comunicação básica em ambientes profissionais.' }],
+    [{ id: 3, image: './assets/img/sobre/tcc.png', text: 'Trabalhos de Conclusão de Curso', desc: 'Realização de dois TCCs, incluindo o projeto social "Manual do Imigrante" e uma pesquisa sobre a Síndrome de Burnout em docentes da rede pública, unindo tecnologia, análise social e pesquisa acadêmica.' }],
+];
+
+const sobreMim = document.getElementById('sobreTextArea');
+
+function renderizar(){
+    const item = sobre[num];
+    sobreMim.innerHTML = `
+        <div class="sobre-item">
+            <img src='${item[0].image}'>
+            <div>
+                <h1>${item[0].text}</h1>
+                <h2>${item[0].desc}</h2>
+            </div>
+        </div>
+    `;
+}
+
+function passar(lado){
+    if(lado){ // direita
+        if(num < sobre.length - 1){
+            num++;
+        } else {
+            num = 0;
+        }
+    } else { // esquerda
+        if(num > 0){
+            num--;
+        } else {
+            num = sobre.length - 1;
+        }
+    }
+
+    renderizar(); 
+}
+
+// render inicial
+if (sobreMim) {
+    renderizar();
+} else {
+    console.error('Elemento não encontrado');
+}
+
+
