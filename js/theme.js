@@ -9,15 +9,12 @@ const temas = {
     azulEscuro: '#0d47a1'
 };
 
-// Variável global para o container das partículas
 let particlesContainer = null;
 
 document.addEventListener('DOMContentLoaded', () => {
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
     let tema = localStorage.getItem('tema') || 'padrao';
-    let modo = localStorage.getItem('modo') || 'light';
-
-    const select = document.getElementById('temaCor');
-    if (select) select.value = tema;
+    let modo = localStorage.getItem('modo') || (prefersDarkScheme.matches ? 'dark' : 'light');
 
     function aplicar() {
         const cor = temas[tema];
@@ -26,59 +23,46 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('tema', tema);
         localStorage.setItem('modo', modo);
 
-        // CSS variable (principal)
         document.documentElement.style.setProperty('--cor-primaria', cor);
-
-        // Container
         document.body.className = modo;
 
         const container = document.querySelector('.container');
         if (container) container.className = `container ${modo}`;
 
-        // Navbar
         const nav = document.getElementById('navBar');
         if (nav) {
             nav.className = modo;
             nav.style.borderBottomColor = cor;
         }
 
-        // Trilho
         const trilho = document.getElementById('trilho');
         if (trilho) {
             trilho.className = `trilho ${modo}`;
             trilho.style.backgroundColor = isDark ? '#292929' : cor;
         }
 
-        // Botão toggle
         const btn = document.getElementById('toggleTheme');
         if (btn) {
             btn.textContent = isDark ? 'Modo Claro' : 'Modo Escuro';
             btn.style.backgroundColor = cor;
         }
 
-        // Ícone
         const img = document.getElementById('temaImg');
         if (img) img.src = isDark ? './assets/img/moon.png' : './assets/img/sun.png';
 
-        // Textos da nav
         document.querySelectorAll('.navText').forEach(el => {
             el.className = `navText ${modo}`;
             el.style.color = cor;
         });
 
-        // Atualizar cor das partículas
         atualizarCorParticulas(cor);
     }
 
-    // Função para atualizar a cor das partículas
     function atualizarCorParticulas(novaCor) {
         if (particlesContainer) {
             try {
-                // Método mais confiável para atualizar cores
                 particlesContainer.options.particles.color.value = novaCor;
                 particlesContainer.options.particles.links.color = novaCor;
-
-                // Destruir e recriar partículas com nova cor
                 particlesContainer.destroy();
 
                 tsParticles.load("tsparticles", {
@@ -165,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Toggle light/dark
     document.getElementById('toggleTheme')?.addEventListener('click', () => {
         modo = modo === 'light' ? 'dark' : 'light';
         aplicar();
@@ -176,22 +159,15 @@ document.addEventListener('DOMContentLoaded', () => {
         aplicar();
     });
 
-    select?.addEventListener('change', function () {
-        tema = this.value;
-        aplicar();
-    });
-
     document.querySelectorAll('.temaBtn').forEach(btn => {
         btn.addEventListener('click', () => {
             tema = btn.dataset.tema;
             aplicar();
-            // Fechar modal após escolher tema
             const modal = document.getElementById('temaModal');
             modal.classList.remove('active');
         });
     });
 
-    // Inicializar partículas
     if (window.tsParticles) {
         tsParticles.load("tsparticles", {
             fullScreen: {
@@ -270,7 +246,6 @@ document.addEventListener('DOMContentLoaded', () => {
             retina_detect: true
         }).then(container => {
             particlesContainer = container;
-            console.log('tsParticles carregado com sucesso!');
             aplicar();
         }).catch(error => {
             console.error('Erro ao carregar tsParticles:', error);
@@ -279,11 +254,9 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('tsParticles não foi carregado corretamente');
     }
 
-    // Modal functionality - CORREÇÃO AQUI
     const modal = document.getElementById('temaModal');
     const abrirTemas = document.getElementById('abrirTemas');
 
-    // Abrir modal
     if (abrirTemas) {
         abrirTemas.addEventListener('click', () => {
             if (modal) {
@@ -292,7 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Fechar clicando fora da caixa
     if (modal) {
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
@@ -300,4 +272,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    prefersDarkScheme.addEventListener('change', (e) => {
+        if (!localStorage.getItem('modo')) {
+            modo = e.matches ? 'dark' : 'light';
+            aplicar();
+        }
+    });
 });
