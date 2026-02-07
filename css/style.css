@@ -1,5 +1,5 @@
 :root {
-    --cor-primaria: #6a0dad;
+    --cor-primaria: rgb(106, 13, 173);
     --cor-texto-claro: #111;
     --cor-fundo-claro: #fff;
     --cor-texto-escuro: #fff;
@@ -17,6 +17,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    -webkit-user-select: none; 
+    -moz-user-select: none;    
+    -ms-user-select: none;     
+    user-select: none;         
 }
 
 /* Corpo da página */
@@ -589,7 +593,9 @@ body.dark .skill-card {
 
 .skill-card:hover {
     transform: scale(1.08);
-    box-shadow: 0 0 15px rgba(106, 13, 173, 0.6);
+    box-shadow:
+        0 0 8px  color-mix(in srgb, var(--cor-primaria) 40%, transparent),
+        0 0 16px color-mix(in srgb, var(--cor-primaria) 20%, transparent);
 }
 
 .iconLing {
@@ -619,6 +625,7 @@ body.dark .skill-card {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 /* tamanhos */
@@ -807,7 +814,7 @@ body.dark .contBack {
 
 .contBack:hover {
     transform: scale(1.15);
-    border: dashed var(--cor-primaria) 3px;
+    border: 3px dashed color-mix(in srgb, var(--cor-primaria) 60%, transparent 30%);
     transition: background-color 0.5s ease, transform 0.3s ease;
 }
 

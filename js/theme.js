@@ -1,12 +1,12 @@
 const temas = {
-    padrao: '#6a0dad',
-    laranja: '#ff6b35',
-    azul: '#2196f3',
-    amarelo: '#ffd700',
-    rosa: '#e91e63',
-    vermelho: '#ff2515',
-    verde: '#4caf50',
-    azulEscuro: '#0d47a1'
+    padrao: 'rgb(106, 13, 173)',
+    laranja: 'rgb(255, 107, 53)',
+    azul: 'rgb(33, 150, 243)',
+    amarelo: 'rgb(255, 215, 0)',
+    rosa: 'rgb(233, 30, 99)',
+    vermelho: 'rgb(255, 37, 21)',
+    verde: 'rgb(76, 175, 80)',
+    azulEscuro: 'rgb(13, 71, 161)'
 };
 
 let particlesContainer = null;

@@ -28,6 +28,7 @@ async function startLoop(element) {
         await wait(2000);
         await erase(element);
         index = (index + 1) % frases.length;
+        await wait(1000);
     }
 }
 
