@@ -173,9 +173,8 @@ body.dark {
 }
 
 .btn {
-    padding: 10px 20px;
+    padding: 10px 10px;
     background-color: var(--cor-primaria);
-    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
