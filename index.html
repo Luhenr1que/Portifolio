@@ -80,8 +80,10 @@
             <section class="linhaMenor"></section>
             <div class="sobreArea">
                 <button class="btnL" onclick="passar(false)"><div id="leftB"></div></button>
-                <div id="sobreTextArea">
-
+                <div class="slider-container">
+                    <div id="sobreTrack" class="slider-track">
+                        <!-- JS injects here -->
+                    </div>
                 </div>
                 <button class="btnR" id="R" onclick="passar(true)"><div id="rightB"></div></button>
             </div>
@@ -110,109 +112,141 @@
         <section class="linha"></section>
 
         <section class="projetos" id="projetos">
-            <section class="gallery">
-                <h1>Projetos</h1>
+            <h1 class="titulo" style="margin-bottom: 20px;">Projetos</h1>
+            
+            <div class="projetos-container">
+                <!-- Sidebar -->
+                <aside class="projetos-sidebar">
+                    <button class="sidebar-btn" data-target="proj-iniciais">
+                        <img src="./assets/img/lings/git.png" alt="Iniciais"> Iniciais
+                    </button>
+                    <button class="sidebar-btn active" data-target="proj-web">
+                        <img src="./assets/img/lings/web.png" alt="Web"> Web
+                    </button>
+                    <button class="sidebar-btn" data-target="proj-mobile">
+                        <img src="./assets/img/lings/react.png" alt="Mobile"> Mobile
+                    </button>
+                    <button class="sidebar-btn" data-target="proj-software">
+                        <img src="./assets/img/lings/java.png" alt="Software"> Software
+                    </button>
+                    <button class="sidebar-btn" data-target="proj-profissional">
+                        <img src="./assets/img/lings/github.png" alt="Profissional"> Profissional
+                    </button>
+                </aside>
 
-                <div class="img-box big">
-                    <img src="./assets/img/projeetos/aquadevhome.png">
-                    <span class="overlay-text"><h1 style="color: #002f62; border: none; font-size: 20px;"> AquaDev </h1> • Website •
-                        <span class="overlayLinha"></span>
+                <!-- Content Area -->
+                <div class="projetos-content" id="projetos-scroll-area">
+                    
+                    <!-- Categoria Iniciais -->
+                    <div class="proj-section" id="proj-iniciais">
+                        <h2>Projetos Iniciais</h2>
+                        <p class="proj-placeholder">Nenhum projeto cadastrado nesta categoria ainda.</p>
+                    </div>
 
+                    <!-- Categoria Web -->
+                    <div class="proj-section" id="proj-web">
+                        <h2>Desenvolvimento Web</h2>
+                        <div class="gallery-grid">
+                            <!-- Card AquaDev -->
+                            <div class="project-card">
+                                <div class="project-img">
+                                    <img src="./assets/img/projeetos/aquadevhome.png" alt="AquaDev">
+                                </div>
+                                <div class="project-content">
+                                    <div class="project-header">
+                                        <h3 style="color: #002f62;">AquaDev</h3>
+                                        <span class="project-tag">Website</span>
+                                    </div>
+                                    <p class="project-desc">AquaDev é uma empresa do setor de tecnologia, criada para o TCC, especializada no desenvolvimento de soluções digitais e softwares personalizados para negócios de pequeno e médio porte.</p>
+                                    <div class="project-langs">
+                                        <img src="./assets/img/lings/laravel.png" title="Laravel" alt="Laravel">
+                                        <img src="./assets/img/lings/web.png" title="Ferramentas WEB" alt="WEB">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                        <span class="overlay-ling">
-                            <span style="display: flex;flex-direction: column;margin-right:5vw;">
-                            <span class="overlay-ling">
-                                <img src="./assets/img/lings/laravel.png"></img>
-                                <h1>Laravel</h1>
-                            </span>
-                                <span class="overlay-ling">
-                                    <img src="./assets/img/lings/web.png"></img>
-                                    <h1>Ferramentas WEB</h1>
-                                </span> 
-                            </span>
+                    <!-- Categoria Mobile -->
+                    <div class="proj-section" id="proj-mobile">
+                        <h2>Desenvolvimento Mobile</h2>
+                        <div class="gallery-grid">
+                            
+                            <!-- Card ZooKids -->
+                            <div class="project-card" onclick="window.open('https://github.com/Luhenr1que/ZooKids', '_blank')">
+                                <div class="project-img">
+                                    <img src="./assets/img/projeetos/zookids.png" alt="ZooKids">
+                                </div>
+                                <div class="project-content">
+                                    <div class="project-header">
+                                        <h3 style="color: #ff9715;">ZooKids</h3>
+                                        <span class="project-tag">Mobile</span>
+                                    </div>
+                                    <p class="project-desc">Aplicativo mobile educativo voltado ao público infantil, com foco em aprendizado lúdico, interação visual e experiência intuitiva para crianças.</p>
+                                    <div class="project-langs">
+                                        <img src="./assets/img/lings/react.png" title="React Native" alt="React">
+                                        <img src="./assets/img/lings/node.png" title="Node.js" alt="Node">
+                                    </div>
+                                </div>
+                            </div>
 
-                            <span class="lineVert"></span>
+                            <!-- Card Manual do Imigrante -->
+                            <div class="project-card">
+                                <div class="project-img">
+                                    <img src="./assets/img/projeetos/manual.png" alt="Manual do Imigrante">
+                                </div>
+                                <div class="project-content">
+                                    <div class="project-header">
+                                        <h3 style="color: #00bcab;">Manual do Imigrante</h3>
+                                        <span class="project-tag">Mobile</span>
+                                    </div>
+                                    <p class="project-desc">Aplicativo informativo desenvolvido para auxiliar imigrantes com orientações, documentos, direitos e serviços essenciais de forma simples e acessível.</p>
+                                    <div class="project-langs">
+                                        <img src="./assets/img/lings/laravel.png" title="Laravel" alt="Laravel">
+                                        <img src="./assets/img/lings/react.png" title="React Native" alt="React">
+                                        <img src="./assets/img/lings/node.png" title="Node.js" alt="Node">
+                                        <img src="./assets/img/lings/mysql.png" title="MySQL" alt="MySQL">
+                                    </div>
+                                </div>
+                            </div>
 
-                            <span class="overlay-desc" style="margin-left: 5vw;"> AquaDev é uma empresa do setor de tecnologia, criada para o TCC, especializada no desenvolvimento de soluções digitais e softwares personalizados para negócios de pequeno e médio porte.</span>
-                        </span>
+                            <!-- Card MedLive -->
+                            <div class="project-card" onclick="window.open('https://github.com/Luhenr1que/Meus-Projetos-', '_blank')">
+                                <div class="project-img">
+                                    <img src="./assets/img/projeetos/medlive.jpeg" alt="MedLive">
+                                </div>
+                                <div class="project-content">
+                                    <div class="project-header">
+                                        <h3 style="color: #6448ac;">MedLive</h3>
+                                        <span class="project-tag">Mobile</span>
+                                    </div>
+                                    <p class="project-desc">Aplicativo mobile voltado à área da saúde, oferecendo acesso rápido a informações, serviços médicos e gerenciamento de dados de forma prática e segura.</p>
+                                    <div class="project-langs">
+                                        <img src="./assets/img/lings/laravel.png" title="Laravel" alt="Laravel">
+                                        <img src="./assets/img/lings/react.png" title="React Native" alt="React">
+                                        <img src="./assets/img/lings/node.png" title="Node.js" alt="Node">
+                                        <img src="./assets/img/lings/mysql.png" title="MySQL" alt="MySQL">
+                                    </div>
+                                </div>
+                            </div>
 
-                    </span>
+                        </div>
+                    </div>
+
+                    <!-- Categoria Software -->
+                    <div class="proj-section" id="proj-software">
+                        <h2>Desenvolvimento de Software</h2>
+                        <p class="proj-placeholder">Nenhum projeto cadastrado nesta categoria ainda.</p>
+                    </div>
+
+                    <!-- Categoria Profissional -->
+                    <div class="proj-section" id="proj-profissional">
+                        <h2>Projetos Profissionais</h2>
+                        <p class="proj-placeholder">Nenhum projeto cadastrado nesta categoria ainda.</p>
+                    </div>
+
                 </div>
-
-                <section class="line">
-
-                    <div class="img-box" onclick="window.open('https://github.com/Luhenr1que/ZooKids', '_blank')">
-                        <img src="./assets/img/projeetos/zookids.png">
-                        <span class="overlay-text"><h1 style="color: #ff9715; border: none; font-size: 20px;"> ZooKids </h1> • Mobile •
-                            <span class="overlayLinha"></span>
-                            <span class="overlay-desc">Aplicativo mobile educativo voltado ao público infantil, com foco em aprendizado lúdico, interação visual e experiência intuitiva para crianças.</span>
-                            <span class="overlayLinha"></span>
-                            <span class="overlay-ling">
-                                <img src="./assets/img/lings/react.png"></img>
-                                <h1>React Native</h1>
-                            </span>
-                            <span class="overlay-ling">
-                                <img src="./assets/img/lings/node.png"></img>
-                                <h1>Node.js</h1>
-                            </span>
-                        </span>
-                    </div>
-
-                    <div class="img-box">
-                        <img src="./assets/img/projeetos/manual.png">
-                        <span class="overlay-text"><h1 style="color: #00bcab; border: none; font-size: 20px;"> Manual do Imigrante </h1> • Mobile •
-                            <span class="overlayLinha"></span>
-                            <span class="overlay-desc">Aplicativo informativo desenvolvido para auxiliar imigrantes com orientações, documentos, direitos e serviços essenciais de forma simples e acessível.</span>
-                            <span class="overlayLinha"></span>
-                            <span class="overlay-ling">
-                                <img src="./assets/img/lings/laravel.png"></img>
-                                <h1>Laravel</h1>
-                            </span>
-                            <span class="overlay-ling">
-                                <img src="./assets/img/lings/react.png"></img>
-                                <h1>React Native</h1>
-                            </span>
-                            <span class="overlay-ling">
-                                <img src="./assets/img/lings/node.png"></img>
-                                <h1>Node.js</h1>
-                            </span>
-                            <span class="overlay-ling">
-                                <img src="./assets/img/lings/mysql.png"></img>
-                                <h1>mysql</h1>
-                            </span>
-                        </span>
-                    </div>
-
-                    <div class="img-box" onclick="window.open('https://github.com/Luhenr1que/Meus-Projetos-', '_blank')">
-                        <img src="./assets/img/projeetos/medlive.jpeg">
-                        <span class="overlay-text"><h1 style="color: #6448ac; border: none; font-size: 20px;"> MedLive </h1> • Mobile •
-                            <span class="overlayLinha"></span>
-                            <span class="overlay-desc">Aplicativo mobile voltado à área da saúde, oferecendo acesso rápido a informações, serviços médicos e gerenciamento de dados de forma prática e segura.</span>
-                            <span class="overlayLinha"></span>
-                            <span class="overlay-ling">
-                                <img src="./assets/img/lings/laravel.png"></img>
-                                <h1>Laravel</h1>
-                            </span>
-                            <span class="overlay-ling">
-                                <img src="./assets/img/lings/react.png"></img>
-                                <h1>React Native</h1>
-                            </span>
-                            <span class="overlay-ling">
-                                <img src="./assets/img/lings/node.png"></img>
-                                <h1>Node.js</h1>
-                            </span>
-                            <span class="overlay-ling">
-                                <img src="./assets/img/lings/mysql.png"></img>
-                                <h1>mysql</h1>
-                            </span>
-                        </span>
-                    </div>
-
-                </section>
-
-            </section>
-
-
+            </div>
         </section>
 
         <section class="linha"></section>

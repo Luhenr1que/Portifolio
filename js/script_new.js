@@ -1,12 +1,12 @@
 ﻿const frases = [
-  'Seja bem-vindo ao meu portfÃ³lio',
-  'Transformando ideias em soluÃ§Ãµes digitais',
-  'CÃ³digo limpo, design funcional',
+  'Seja bem-vindo ao meu portfólio',
+  'Transformando ideias em soluções digitais',
+  'Código limpo, design funcional',
   'Desenvolvimento focado em resultados',
   'Do conceito ao produto final',
-  'SoluÃ§Ãµes modernas para problemas reais',
+  'Soluções modernas para problemas reais',
   'Tecnologia pensada para pessoas',
-  'Criando experiÃªncias digitais eficientes'
+  'Criando experiências digitais eficientes'
 ];
 
 let index = 0;
@@ -95,31 +95,19 @@ const sobre = [
     [{ id: 3, image: './assets/img/sobre/tcc.png', text: 'Trabalhos de Conclusão de Curso', desc: 'Realização de dois TCCs, incluindo o projeto social "Manual do Imigrante" e uma pesquisa sobre a Síndrome de Burnout em docentes da rede pública, unindo tecnologia, análise social e pesquisa acadêmica.' }],
 ];
 
-const sobreTrack = document.getElementById('sobreTrack');
+const sobreMim = document.getElementById('sobreTextArea');
 
-function renderizarSobre(){
-    if (!sobreTrack) return;
-    
-    let html = '';
-    sobre.forEach(item => {
-        html += `
-            <div class="sobre-slide">
-                <img src='${item[0].image}' alt='${item[0].text}'>
-                <div class="sobre-slide-text">
-                    <h1>${item[0].text}</h1>
-                    <h2>${item[0].desc}</h2>
-                </div>
+function renderizar(){
+    const item = sobre[num];
+    sobreMim.innerHTML = `
+        <div class="sobre-item">
+            <img src='${item[0].image}'>
+            <div>
+                <h1>${item[0].text}</h1>
+                <h2>${item[0].desc}</h2>
             </div>
-        `;
-    });
-    sobreTrack.innerHTML = html;
-    updateSliderPosition();
-}
-
-function updateSliderPosition() {
-    if (!sobreTrack) return;
-    const offset = -(num * 100);
-    sobreTrack.style.transform = `translateX(${offset}%)`;
+        </div>
+    `;
 }
 
 function passar(lado){
@@ -136,17 +124,18 @@ function passar(lado){
             num = sobre.length - 1;
         }
     }
-    updateSliderPosition(); 
+
+    renderizar(); 
 }
 
 // render inicial
-if (sobreTrack) {
-    renderizarSobre();
+if (sobreMim) {
+    renderizar();
 } else {
     console.error('Elemento não encontrado');
 }
 
-// LÃ³gica da aba de Projetos (Sidebar e Scroll)
+// Lógica da aba de Projetos (Sidebar e Scroll)
 document.addEventListener('DOMContentLoaded', () => {
     const sidebarBtns = document.querySelectorAll('.sidebar-btn');
     const scrollArea = document.getElementById('projetos-scroll-area');
@@ -154,14 +143,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!scrollArea || sidebarBtns.length === 0) return;
 
-    // Clique na sidebar para rolar atÃ© a seÃ§Ã£o
+    // Clique na sidebar para rolar até a seção
     sidebarBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const targetId = btn.getAttribute('data-target');
             const targetSection = document.getElementById(targetId);
             
             if (targetSection) {
-                // Calcula a posiÃ§Ã£o do elemento relativo ao scrollArea
+                // Calcula a posição do elemento relativo ao scrollArea
                 const topPos = targetSection.offsetTop - scrollArea.offsetTop;
                 scrollArea.scrollTo({
                     top: topPos,
@@ -171,11 +160,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Observer para atualizar botÃ£o ativo no scroll
+    // Observer para atualizar botão ativo no scroll
     const observerOptions = {
         root: scrollArea,
         rootMargin: '0px',
-        threshold: 0.5 // Ativa quando 50% da seÃ§Ã£o estiver visÃ­vel
+        threshold: 0.5 // Ativa quando 50% da seção estiver visível
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -186,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Remove active de todos
                 sidebarBtns.forEach(b => b.classList.remove('active'));
                 
-                // Adiciona active no botÃ£o correspondente
+                // Adiciona active no botão correspondente
                 const activeBtn = document.querySelector(`.sidebar-btn[data-target="${id}"]`);
                 if (activeBtn) {
                     activeBtn.classList.add('active');
@@ -199,4 +188,3 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(sec);
     });
 });
-
