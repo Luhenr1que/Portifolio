@@ -1,282 +1,484 @@
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Luis Henrique</title>
-    <link rel="icon" type="image/png" href="./assets/img/logo.png">
-    <link rel="stylesheet" href="./css/theme.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/png" href="./assets/img/logo.png" />
+    <link rel="stylesheet" href="./css/theme.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+  </head>
 
-
-</head>
-
-<body>
-
+  <body>
     <div id="tsparticles"></div>
 
     <header id="navBar" class="light">
-        <div class="logoBox">
-            <div id="logo"></div>
-        </div>
+      <div class="logoBox">
+        <div id="logo"></div>
+      </div>
 
+      <div id="textA">
+        <a class="navText light" href="#startBox">Inicio</a>
+        <a class="navText light" href="#sobreMim">Sobre mim</a>
+        <a class="navText light" href="#projetos">Projetos</a>
+        <a class="navText light" href="#contato">Contato</a>
+      </div>
 
-        <div id="textA">
-            <a class="navText light" href="#startBox">Inicio</a>
-            <a class="navText light" href="#sobreMim">Sobre mim</a>
-            <a class="navText light" href="#projetos">Projetos</a>
-            <a class="navText light" href="#contato">Contato</a>
-        </div>
+      <div class="temasBox">
+        <div class="tema-wrapper">
+          <button id="abrirTemas" class="btn">
+            <img
+              src="./assets/img/color-palette.png"
+              style="width: 2.5vh; height: 2.5vh"
+            />
+          </button>
 
-        <div class="temasBox">
-            <div class="tema-wrapper">
+          <div class="tema-modal" id="temaModal">
+            <div class="tema-box">
+              <h3>Escolha um tema</h3>
 
-                <button id="abrirTemas" class="btn"><img src="./assets/img/color-palette.png" style="width: 2.5vh;height: 2.5vh;"></button>
-
-                <div class="tema-modal" id="temaModal">
-                    <div class="tema-box">
-                        <h3>Escolha um tema</h3>
-
-                        <div class="tema-grid">
-                            <button class="temaBtn" data-tema="padrao" style="--cor:#6a0dad">Padrão</button>
-                            <button class="temaBtn" data-tema="laranja" style="--cor:#ff6b35">Laranja</button>
-                            <button class="temaBtn" data-tema="azul" style="--cor:#2196f3">Azul</button>
-                            <button class="temaBtn" data-tema="amarelo" style="--cor:#ffd700">Amarelo</button>
-                            <button class="temaBtn" data-tema="rosa" style="--cor:#e91e63">Rosa</button>
-                            <button class="temaBtn" data-tema="vermelho" style="--cor:#ff2515">Vermelho</button>
-                            <button class="temaBtn" data-tema="verde" style="--cor:#4caf50">Verde</button>
-                            <button class="temaBtn" data-tema="azulEscuro" style="--cor:#0d47a1">Azul Escuro</button>
-                        </div>
-                    </div>
-                </div>
+              <div class="tema-grid">
+                <button
+                  class="temaBtn"
+                  data-tema="padrao"
+                  style="--cor: #6a0dad"
+                >
+                  Padrão
+                </button>
+                <button
+                  class="temaBtn"
+                  data-tema="laranja"
+                  style="--cor: #ff6b35"
+                >
+                  Laranja
+                </button>
+                <button class="temaBtn" data-tema="azul" style="--cor: #2196f3">
+                  Azul
+                </button>
+                <button
+                  class="temaBtn"
+                  data-tema="amarelo"
+                  style="--cor: #ffd700"
+                >
+                  Amarelo
+                </button>
+                <button class="temaBtn" data-tema="rosa" style="--cor: #e91e63">
+                  Rosa
+                </button>
+                <button
+                  class="temaBtn"
+                  data-tema="vermelho"
+                  style="--cor: #ff2515"
+                >
+                  Vermelho
+                </button>
+                <button
+                  class="temaBtn"
+                  data-tema="verde"
+                  style="--cor: #4caf50"
+                >
+                  Verde
+                </button>
+                <button
+                  class="temaBtn"
+                  data-tema="azulEscuro"
+                  style="--cor: #0d47a1"
+                >
+                  Azul Escuro
+                </button>
+              </div>
             </div>
-
-            <div class="trilho light" id="trilho">
-                <div class="indicador" id="indicador">
-                    <img src="./assets/img/sun.png" id="temaImg">
-                </div>
-            </div>
+          </div>
         </div>
+
+        <div class="trilho light" id="trilho">
+          <div class="indicador" id="indicador">
+            <img src="./assets/img/sun.png" id="temaImg" />
+          </div>
+        </div>
+      </div>
     </header>
 
     <div class="container light" id="startBox">
-        <section class="startBox">
-            <div class="startBoxText">
-                <h1>Portifólio</h1>
-                <h2>Luis Henrique</h2>
-                <div class="txt" id="frase">
-                    <span class="text"></span><span class="cursor"></span>
+      <section class="startBox">
+        <div class="startBoxText">
+          <h1>Portifólio</h1>
+          <h2>Luis Henrique</h2>
+          <div class="txt" id="frase">
+            <span class="text"></span><span class="cursor"></span>
+          </div>
+        </div>
+      </section>
 
+      <section class="linha"></section>
+
+      <section class="sobreBox" id="sobreMim">
+        <h1>Sobre Mim</h1>
+        <section class="linhaMenor"></section>
+        <div class="sobreArea">
+          <button class="btnL" onclick="passar(false)">
+            <div id="leftB"></div>
+          </button>
+          <div class="slider-container">
+            <div id="sobreTrack" class="slider-track">
+              <!-- JS injects here -->
+            </div>
+          </div>
+          <button class="btnR" id="R" onclick="passar(true)">
+            <div id="rightB"></div>
+          </button>
+        </div>
+      </section>
+
+      <section class="linha"></section>
+
+      <section class="skills">
+        <section class="skill-group" data-tipo="dev">
+          <h3>Desenvolvimento</h3>
+          <div class="skills-list" id="dev"></div>
+        </section>
+
+        <section class="skill-group" data-tipo="database">
+          <h3>Banco de Dados</h3>
+          <div class="skills-list" id="database"></div>
+        </section>
+
+        <section class="skill-group" data-tipo="ferramentas">
+          <h3>Ferramentas</h3>
+          <div class="skills-list" id="ferramentas"></div>
+        </section>
+      </section>
+
+      <section class="linha"></section>
+
+      <section class="projetos" id="projetos">
+        <h1 class="titulo" style="margin-bottom: 20px">Projetos</h1>
+
+        <div class="projetos-container">
+          <!-- Sidebar -->
+          <aside class="projetos-sidebar">
+            <button class="sidebar-btn" data-target="proj-iniciais">
+              <img src="./assets/img/lings/git.png" alt="Iniciais" /> Iniciais
+            </button>
+            <button class="sidebar-btn active" data-target="proj-web">
+              <img src="./assets/img/lings/web.png" alt="Web" /> Web
+            </button>
+            <button class="sidebar-btn" data-target="proj-mobile">
+              <img src="./assets/img/lings/react.png" alt="Mobile" /> Mobile
+            </button>
+            <button class="sidebar-btn" data-target="proj-software">
+              <img src="./assets/img/lings/java.png" alt="Software" /> Software
+            </button>
+            <button class="sidebar-btn" data-target="proj-profissional">
+              <img src="./assets/img/lings/github.png" alt="Profissional" />
+              Profissional
+            </button>
+          </aside>
+
+          <!-- Content Area -->
+          <div class="projetos-content" id="projetos-scroll-area">
+            <!-- Categoria Iniciais -->
+            <div class="proj-section" id="proj-iniciais">
+              <h2>Projetos Iniciais</h2>
+              <p class="proj-placeholder">
+                Nenhum projeto cadastrado nesta categoria ainda.
+              </p>
+            </div>
+
+            <!-- Categoria Web -->
+            <div class="proj-section" id="proj-web">
+              <h2>Desenvolvimento Web</h2>
+              <div class="gallery-grid">
+                <!-- Card AquaDev -->
+                <div class="project-card">
+                  <div class="project-img">
+                    <img
+                      src="./assets/img/projeetos/aquadevhome.png"
+                      alt="AquaDev"
+                    />
+                  </div>
+                  <div class="project-content">
+                    <div class="project-header">
+                      <h3 style="color: #002f62">AquaDev</h3>
+                      <span class="project-tag">Website</span>
+                    </div>
+                    <p class="project-desc">
+                      AquaDev é uma empresa do setor de tecnologia, criada para
+                      o TCC, especializada no desenvolvimento de soluções
+                      digitais e softwares personalizados para negócios de
+                      pequeno e médio porte.
+                    </p>
+                    <div class="project-langs">
+                      <img
+                        src="./assets/img/lings/laravel.png"
+                        title="Laravel"
+                        alt="Laravel"
+                      />
+                      <img
+                        src="./assets/img/lings/web.png"
+                        title="Ferramentas WEB"
+                        alt="WEB"
+                      />
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
 
-        </section>
-
-        <section class="linha"></section>
-
-        <section class="sobreBox" id="sobreMim">
-            <h1>Sobre Mim</h1>
-            <section class="linhaMenor"></section>
-            <div class="sobreArea">
-                <button class="btnL" onclick="passar(false)"><div id="leftB"></div></button>
-                <div class="slider-container">
-                    <div id="sobreTrack" class="slider-track">
-                        <!-- JS injects here -->
+            <!-- Categoria Mobile -->
+            <div class="proj-section" id="proj-mobile">
+              <h2>Desenvolvimento Mobile</h2>
+              <div class="gallery-grid">
+                <!-- Card ZooKids -->
+                <div
+                  class="project-card"
+                  onclick="
+                    window.open(
+                      'https://github.com/Luhenr1que/ZooKids',
+                      '_blank',
+                    )
+                  "
+                >
+                  <div class="project-img">
+                    <img
+                      src="./assets/img/projeetos/zookids.png"
+                      alt="ZooKids"
+                    />
+                  </div>
+                  <div class="project-content">
+                    <div class="project-header">
+                      <h3 style="color: #ff9715">ZooKids</h3>
+                      <span class="project-tag">Mobile</span>
                     </div>
+                    <p class="project-desc">
+                      Aplicativo mobile educativo voltado ao público infantil,
+                      com foco em aprendizado lúdico, interação visual e
+                      experiência intuitiva para crianças.
+                    </p>
+                    <div class="project-langs">
+                      <img
+                        src="./assets/img/lings/react.png"
+                        title="React Native"
+                        alt="React"
+                      />
+                      <img
+                        src="./assets/img/lings/node.png"
+                        title="Node.js"
+                        alt="Node"
+                      />
+                    </div>
+                  </div>
                 </div>
-                <button class="btnR" id="R" onclick="passar(true)"><div id="rightB"></div></button>
-            </div>
-        </section>
 
-        <section class="linha"></section>
-
-        <section class="skills">
-            <section class="skill-group" data-tipo="dev">
-                <h3>Desenvolvimento</h3>
-                <div class="skills-list" id="dev"></div>
-            </section>
-
-            <section class="skill-group" data-tipo="database">
-                <h3>Banco de Dados</h3>
-                <div class="skills-list" id="database"></div>
-            </section>
-
-            <section class="skill-group" data-tipo="ferramentas">
-                <h3>Ferramentas</h3>
-                <div class="skills-list" id="ferramentas"></div>
-            </section>
-
-        </section>
-
-        <section class="linha"></section>
-
-        <section class="projetos" id="projetos">
-            <h1 class="titulo" style="margin-bottom: 20px;">Projetos</h1>
-            
-            <div class="projetos-container">
-                <!-- Sidebar -->
-                <aside class="projetos-sidebar">
-                    <button class="sidebar-btn" data-target="proj-iniciais">
-                        <img src="./assets/img/lings/git.png" alt="Iniciais"> Iniciais
-                    </button>
-                    <button class="sidebar-btn active" data-target="proj-web">
-                        <img src="./assets/img/lings/web.png" alt="Web"> Web
-                    </button>
-                    <button class="sidebar-btn" data-target="proj-mobile">
-                        <img src="./assets/img/lings/react.png" alt="Mobile"> Mobile
-                    </button>
-                    <button class="sidebar-btn" data-target="proj-software">
-                        <img src="./assets/img/lings/java.png" alt="Software"> Software
-                    </button>
-                    <button class="sidebar-btn" data-target="proj-profissional">
-                        <img src="./assets/img/lings/github.png" alt="Profissional"> Profissional
-                    </button>
-                </aside>
-
-                <!-- Content Area -->
-                <div class="projetos-content" id="projetos-scroll-area">
-                    
-                    <!-- Categoria Iniciais -->
-                    <div class="proj-section" id="proj-iniciais">
-                        <h2>Projetos Iniciais</h2>
-                        <p class="proj-placeholder">Nenhum projeto cadastrado nesta categoria ainda.</p>
+                <!-- Card Manual do Imigrante -->
+                <div class="project-card">
+                  <div class="project-img">
+                    <img
+                      src="./assets/img/projeetos/manual.png"
+                      alt="Manual do Imigrante"
+                    />
+                  </div>
+                  <div class="project-content">
+                    <div class="project-header">
+                      <h3 style="color: #00bcab">Manual do Imigrante</h3>
+                      <span class="project-tag">Mobile</span>
                     </div>
-
-                    <!-- Categoria Web -->
-                    <div class="proj-section" id="proj-web">
-                        <h2>Desenvolvimento Web</h2>
-                        <div class="gallery-grid">
-                            <!-- Card AquaDev -->
-                            <div class="project-card">
-                                <div class="project-img">
-                                    <img src="./assets/img/projeetos/aquadevhome.png" alt="AquaDev">
-                                </div>
-                                <div class="project-content">
-                                    <div class="project-header">
-                                        <h3 style="color: #002f62;">AquaDev</h3>
-                                        <span class="project-tag">Website</span>
-                                    </div>
-                                    <p class="project-desc">AquaDev é uma empresa do setor de tecnologia, criada para o TCC, especializada no desenvolvimento de soluções digitais e softwares personalizados para negócios de pequeno e médio porte.</p>
-                                    <div class="project-langs">
-                                        <img src="./assets/img/lings/laravel.png" title="Laravel" alt="Laravel">
-                                        <img src="./assets/img/lings/web.png" title="Ferramentas WEB" alt="WEB">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <p class="project-desc">
+                      Aplicativo informativo desenvolvido para auxiliar
+                      imigrantes com orientações, documentos, direitos e
+                      serviços essenciais de forma simples e acessível.
+                    </p>
+                    <div class="project-langs">
+                      <img
+                        src="./assets/img/lings/laravel.png"
+                        title="Laravel"
+                        alt="Laravel"
+                      />
+                      <img
+                        src="./assets/img/lings/react.png"
+                        title="React Native"
+                        alt="React"
+                      />
+                      <img
+                        src="./assets/img/lings/node.png"
+                        title="Node.js"
+                        alt="Node"
+                      />
+                      <img
+                        src="./assets/img/lings/mysql.png"
+                        title="MySQL"
+                        alt="MySQL"
+                      />
                     </div>
-
-                    <!-- Categoria Mobile -->
-                    <div class="proj-section" id="proj-mobile">
-                        <h2>Desenvolvimento Mobile</h2>
-                        <div class="gallery-grid">
-                            
-                            <!-- Card ZooKids -->
-                            <div class="project-card" onclick="window.open('https://github.com/Luhenr1que/ZooKids', '_blank')">
-                                <div class="project-img">
-                                    <img src="./assets/img/projeetos/zookids.png" alt="ZooKids">
-                                </div>
-                                <div class="project-content">
-                                    <div class="project-header">
-                                        <h3 style="color: #ff9715;">ZooKids</h3>
-                                        <span class="project-tag">Mobile</span>
-                                    </div>
-                                    <p class="project-desc">Aplicativo mobile educativo voltado ao público infantil, com foco em aprendizado lúdico, interação visual e experiência intuitiva para crianças.</p>
-                                    <div class="project-langs">
-                                        <img src="./assets/img/lings/react.png" title="React Native" alt="React">
-                                        <img src="./assets/img/lings/node.png" title="Node.js" alt="Node">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Card Manual do Imigrante -->
-                            <div class="project-card">
-                                <div class="project-img">
-                                    <img src="./assets/img/projeetos/manual.png" alt="Manual do Imigrante">
-                                </div>
-                                <div class="project-content">
-                                    <div class="project-header">
-                                        <h3 style="color: #00bcab;">Manual do Imigrante</h3>
-                                        <span class="project-tag">Mobile</span>
-                                    </div>
-                                    <p class="project-desc">Aplicativo informativo desenvolvido para auxiliar imigrantes com orientações, documentos, direitos e serviços essenciais de forma simples e acessível.</p>
-                                    <div class="project-langs">
-                                        <img src="./assets/img/lings/laravel.png" title="Laravel" alt="Laravel">
-                                        <img src="./assets/img/lings/react.png" title="React Native" alt="React">
-                                        <img src="./assets/img/lings/node.png" title="Node.js" alt="Node">
-                                        <img src="./assets/img/lings/mysql.png" title="MySQL" alt="MySQL">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Card MedLive -->
-                            <div class="project-card" onclick="window.open('https://github.com/Luhenr1que/Meus-Projetos-', '_blank')">
-                                <div class="project-img">
-                                    <img src="./assets/img/projeetos/medlive.jpeg" alt="MedLive">
-                                </div>
-                                <div class="project-content">
-                                    <div class="project-header">
-                                        <h3 style="color: #6448ac;">MedLive</h3>
-                                        <span class="project-tag">Mobile</span>
-                                    </div>
-                                    <p class="project-desc">Aplicativo mobile voltado à área da saúde, oferecendo acesso rápido a informações, serviços médicos e gerenciamento de dados de forma prática e segura.</p>
-                                    <div class="project-langs">
-                                        <img src="./assets/img/lings/laravel.png" title="Laravel" alt="Laravel">
-                                        <img src="./assets/img/lings/react.png" title="React Native" alt="React">
-                                        <img src="./assets/img/lings/node.png" title="Node.js" alt="Node">
-                                        <img src="./assets/img/lings/mysql.png" title="MySQL" alt="MySQL">
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Categoria Software -->
-                    <div class="proj-section" id="proj-software">
-                        <h2>Desenvolvimento de Software</h2>
-                        <p class="proj-placeholder">Nenhum projeto cadastrado nesta categoria ainda.</p>
-                    </div>
-
-                    <!-- Categoria Profissional -->
-                    <div class="proj-section" id="proj-profissional">
-                        <h2>Projetos Profissionais</h2>
-                        <p class="proj-placeholder">Nenhum projeto cadastrado nesta categoria ainda.</p>
-                    </div>
-
+                  </div>
                 </div>
-            </div>
-        </section>
 
-        <section class="linha"></section>
-        <h1 class="titulo">Contatos</h1>
-        <section class="contatos" id="contato">
-            <div class="contBack">
-                <a id="cont1" href="https://www.instagram.com/Luhenr1qu3" target="_blank" aria-label="Instagram"></a>
-            </div>
-            <div class="contBack">
-                <a id="cont2" href="https://www.linkedin.com/in/luhenriquedev" target="_blank"
-                    aria-label="LinkedIn"></a>
-            </div>
-            <div class="contBack">
-                <a id="cont3" href="https://github.com/Luhenr1que" target="_blank" aria-label="GitHub"></a>
-            </div>
-            <div class="contBack">
-                <a id="cont4" href="./assets/pdf/CVLuisHenrique.pdf" target="_blank"
-                    aria-label="GitHub"></a>
+                <!-- Card MedLive -->
+                <div
+                  class="project-card"
+                  onclick="
+                    window.open(
+                      'https://github.com/Luhenr1que/Meus-Projetos-',
+                      '_blank',
+                    )
+                  "
+                >
+                  <div class="project-img">
+                    <img
+                      src="./assets/img/projeetos/medlive.jpeg"
+                      alt="MedLive"
+                    />
+                  </div>
+                  <div class="project-content">
+                    <div class="project-header">
+                      <h3 style="color: #6448ac">MedLive</h3>
+                      <span class="project-tag">Mobile</span>
+                    </div>
+                    <p class="project-desc">
+                      Aplicativo mobile voltado à área da saúde, oferecendo
+                      acesso rápido a informações, serviços médicos e
+                      gerenciamento de dados de forma prática e segura.
+                    </p>
+                    <div class="project-langs">
+                      <img
+                        src="./assets/img/lings/laravel.png"
+                        title="Laravel"
+                        alt="Laravel"
+                      />
+                      <img
+                        src="./assets/img/lings/react.png"
+                        title="React Native"
+                        alt="React"
+                      />
+                      <img
+                        src="./assets/img/lings/node.png"
+                        title="Node.js"
+                        alt="Node"
+                      />
+                      <img
+                        src="./assets/img/lings/mysql.png"
+                        title="MySQL"
+                        alt="MySQL"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-        </section>
+            <!-- Categoria Software -->
+            <div class="proj-section" id="proj-software">
+              <h2>Desenvolvimento de Software</h2>
+              <p class="proj-placeholder">
+                Nenhum projeto cadastrado nesta categoria ainda.
+              </p>
+            </div>
 
-        <section class="linhFinal">
-            <h1>Copyright © 2025 <h2>Luis Henrique</h2>. Todos os direitos reservados.</h1>
-        </section>
+            <!-- Categoria Profissional -->
+            <div class="proj-section" id="proj-profissional">
+              <h2>Projetos Profissionais</h2>
+              <p class="proj-placeholder">
+                Nenhum projeto cadastrado nesta categoria ainda.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <section class="linha"></section>
+      <h1 class="titulo">Contatos</h1>
+      <section class="contatos" id="contato">
+        <div class="contBack">
+          <a
+            id="cont1"
+            href="https://www.instagram.com/Luhenr1qu3"
+            target="_blank"
+            aria-label="Instagram"
+          ></a>
+        </div>
+        <div class="contBack">
+          <a
+            id="cont2"
+            href="https://www.linkedin.com/in/luhenriquedev"
+            target="_blank"
+            aria-label="LinkedIn"
+          ></a>
+        </div>
+        <div class="contBack">
+          <a
+            id="cont3"
+            href="https://github.com/Luhenr1que"
+            target="_blank"
+            aria-label="GitHub"
+          ></a>
+        </div>
+        <div class="contBack">
+          <a
+            id="cont4"
+            href="./assets/pdf/CVLuisHenrique.pdf"
+            target="_blank"
+            aria-label="GitHub"
+          ></a>
+        </div>
+      </section>
 
+      <section class="linha"></section>
+
+      <section>
+        <iframe
+          id="cage-form-6daac2be"
+          data-cage-src="https://forms.cage.so/f/6daac2be-e520-487b-8f58-49808c866365"
+          width="100%"
+          height="700"
+          frameborder="0"
+          style="background: #fafafa00; border-radius: 4px"
+        ></iframe>
+
+        <script>
+          (function (d) {
+            var frame = d.getElementById("cage-form-6daac2be");
+            if (!frame) return;
+
+            var formId = "6daac2be-e520-487b-8f58-49808c866365";
+            var doc = frame.contentWindow.document;
+
+            doc.open();
+            doc.write(
+              '<body style="margin:0;"><script src="' +
+                frame.dataset.cageSrc +
+                '" data-form><\/script><\/body>',
+            );
+            doc.close();
+
+            var check = setInterval(function () {
+              if (
+                doc.querySelector("form") ||
+                doc.getElementsByTagName("iframe").length > 0
+              ) {
+                clearInterval(check);
+                fetch("https://api.cage.com.br/api/forms/" + formId + "/ping", {
+                  method: "POST",
+                  mode: "no-cors",
+                });
+              }
+            }, 500);
+
+            setTimeout(function () {
+              clearInterval(check);
+            }, 10000);
+          })(document);
+        </script>
+      </section>
+
+      <section class="linhFinal">
+        <h1>
+          Copyright © 2025
+          <h2>Luis Henrique</h2>
+          . Todos os direitos reservados.
+        </h1>
+      </section>
     </div>
     <script src="./js/theme.js"></script>
     <script src="./js/script.js"></script>
-</body>
-
+  </body>
 </html>
