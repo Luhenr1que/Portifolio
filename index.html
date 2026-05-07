@@ -456,7 +456,7 @@
                 doc.getElementsByTagName("iframe").length > 0
               ) {
                 clearInterval(check);
-                fetch("https://api.cage.com.br/api/forms/" + formId + "/ping", {
+                fetch("https://forms.cage.so/api/forms/" + formId + "/ping", {
                   method: "POST",
                   mode: "no-cors",
                 });
