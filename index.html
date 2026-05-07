@@ -425,7 +425,7 @@
       <section class="linha"></section>
 
       <script
-        src="https://forms.cage.so/f/3899af20-7531-4bad-b9b1-c88aff2f0ac1"
+        src="https://forms-b.cage.so/f/3899af20-7531-4bad-b9b1-c88aff2f0ac1"
         type="text/javascript"
         data-form
       ></script>
@@ -455,7 +455,7 @@
         var check = setInterval(function() {
             if (doc.querySelector('form') || doc.getElementsByTagName('iframe').length > 0) {
             clearInterval(check);
-            fetch('https://forms.cage.so/api/forms/' + formId + '/ping', {
+            fetch('https://forms-b.cage.so/api/forms/' + formId + '/ping', {
                 method: 'POST',
                 mode: 'no-cors'
             });
