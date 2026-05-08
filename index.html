@@ -433,7 +433,7 @@
       <section>
         <iframe
         id="cage-form-3899af20"
-        data-cage-src="https://forms.cage.so/f/3899af20-7531-4bad-b9b1-c88aff2f0ac1"
+        data-cage-src="https://forms-b.cage.so/f/3899af20-7531-4bad-b9b1-c88aff2f0ac1"
         width="100%"
         height="600"
         frameborder="0"
@@ -455,7 +455,7 @@
         var check = setInterval(function() {
           if (doc.querySelector('form') || doc.getElementsByTagName('iframe').length > 0) {
             clearInterval(check);
-            fetch('https://forms.cage.so/api/forms/' + formId + '/ping', {
+            fetch('https://forms-b.cage.so/api/forms/' + formId + '/ping', {
               method: 'POST',
               mode: 'no-cors'
             });
