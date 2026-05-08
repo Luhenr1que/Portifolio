@@ -452,7 +452,7 @@
         doc.write('<body style="margin:0;"><script src="' + frame.dataset.cageSrc + '" data-form><\/script><\/body>');
         doc.close();
         w.addEventListener('message', function(event) {
-            if (event.origin !== 'https://forms-b.cage.so') return;
+          console.log(event.data);
             if (event.data && event.data.type === 'cage-redirect') {
                 w.location.href = event.data.url;
             }
