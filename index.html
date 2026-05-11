@@ -431,33 +431,21 @@
       ></script>
 
       <section>
-    <iframe
-        id="cage-form-3899af20"
-        data-cage-src="https://forms-b.cage.so/f/3899af20-7531-4bad-b9b1-c88aff2f0ac1"
-        width="100%"
-        height="600"
-        frameborder="0"
-        style="background: #fafafa00; border-radius: 4px;" 
-    ></iframe>
-
-    <script>
-    (function(d, w) {
-        var frame = d.getElementById('cage-form-3899af20');
-        if (!frame) return;
-
-        var formId = '3899af20-7531-4bad-b9b1-c88aff2f0ac1';
-        var doc = frame.contentWindow.document;
-
-        doc.open();
-        doc.write('<body style="margin:0;"><script src="' + frame.dataset.cageSrc + '" data-form><\/script><\/body>');
-        doc.close();
-        w.addEventListener('message', function(event) {
-          console.log(event.data);
-            if (event.data && event.data.type === 'cage-redirect') {
-                w.location.href = event.data.url;
-            }
+        <iframe id="cage-form-3899af20" data-cage-src="https://forms-b.cage.so/f/3899af20-7531-4bad-b9b1-c88aff2f0ac1" width="100%" height="600" frameborder="0" style="background: #fafafa00; border-radius: 4px;"></iframe>
+        <script>
+        (function(d, w) {
+            var frame = d.getElementById('cage-form-3899af20');
+            if (!frame) return; 
+            var formId = '3899af20-7531-4bad-b9b1-c88aff2f0ac1';
+            var doc = frame.contentWindow.document;
+            doc.open();
+            doc.write('<body style="margin:0;"><script src="' + frame.dataset.cageSrc + '" data-form><\/script><\/body>');
+            doc.close();
+            w.addEventListener('message', function(event) {
+                if (event.data && event.data.type === 'cage-redirect') {
+                    w.location.href = event.data.url;
+                }
         });
-
         var check = setInterval(function() {
             if (doc.querySelector('form') || doc.getElementsByTagName('iframe').length > 0) {
                 clearInterval(check);
@@ -467,7 +455,6 @@
                 });
             }
         }, 500);
-
         setTimeout(function() { clearInterval(check); }, 10000);
     })(document, window);
     </script>
