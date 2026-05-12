@@ -536,7 +536,37 @@
 
   var doc = frame.contentWindow.document;
   doc.open();
-  doc.write('<body style=\"margin:0;\"><script src=\"' + frame.dataset.cageSrc + '\" data-form><\\/script><\\/body>');\n  doc.close();\n\n  w.addEventListener('message', function(event) {\n    if (event.data && event.data.type === 'cage-redirect' && event.data.url) {\n      w.location.href = event.data.url;\n    }\n  });\n})(document, window);\n</script>\n<script>\n(function(d) {\n  var frame = d.getElementById('cage-form-8cabdffe');\n  if (!frame) return;\n\n  var formId = '8cabdffe-8522-48d4-827c-c6aa7b54c18a';\n  var doc = frame.contentWindow.document;\n\n  var check = setInterval(function() {\n    if (doc.querySelector('form') || doc.getElementsByTagName('iframe').length > 0) {\n      clearInterval(check);\n      fetch('https://forms-d.cage.so/api/forms/' + formId + '/ping', {\n        method: 'POST',\n        mode: 'no-cors'\n      });\n    }\n  }, 500);\n\n  setTimeout(function() { clearInterval(check); }, 10000);\n})(document);\n</script>
+  doc.write('<body style="margin:0;"><script src="' + frame.dataset.cageSrc + '" data-form><\/script><\/body>');
+  doc.close();
+
+  w.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'cage-redirect' && event.data.url) {
+      w.location.href = event.data.url;
+    }
+  });
+})(document, window);
+</script>
+<script>
+(function(d) {
+  var frame = d.getElementById('cage-form-8cabdffe');
+  if (!frame) return;
+
+  var formId = '8cabdffe-8522-48d4-827c-c6aa7b54c18a';
+  var doc = frame.contentWindow.document;
+
+  var check = setInterval(function() {
+    if (doc.querySelector('form') || doc.getElementsByTagName('iframe').length > 0) {
+      clearInterval(check);
+      fetch('https://forms-d.cage.so/api/forms/' + formId + '/ping', {
+        method: 'POST',
+        mode: 'no-cors'
+      });
+    }
+  }, 500);
+
+  setTimeout(function() { clearInterval(check); }, 10000);
+})(document);
+</script> 
 
 
 
