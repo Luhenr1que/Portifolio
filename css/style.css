@@ -1522,9 +1522,15 @@ body.dark .linhFinal {
   }
 }
 
-#cage-form-6c970937,
+#cage-form-6c970937 {
+  background-color: #ffffff00 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 10px !important;
+  border: 1px var(--cor-primaria) !important;
+}
 #cage-form-6c970937 form {
-  background-color: transparent !important;
+  background-color: #ffffff00 !important;
   width: 100% !important;
   max-width: 100% !important;
   padding: 0 !important;
@@ -1533,7 +1539,7 @@ body.dark .linhFinal {
   box-shadow: none !important;
 }
 
-body.dark #cage-title,
+body.dark #cage-name,
 body.dark #cage-information {
   width: 30vw !important;
   padding: 0.75rem 1rem !important;
@@ -1544,9 +1550,11 @@ body.dark #cage-information {
   color: #ffffff !important;
   font-family: "Poppins", sans-serif !important;
   font-size: 1rem !important;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease !important;
 }
-body.light #cage-title,
+body.light #cage-name,
 body.light #cage-information {
   width: 30vw !important;
   padding: 0.75rem 1rem !important;
@@ -1557,7 +1565,9 @@ body.light #cage-information {
   color: #131313 !important;
   font-family: "Poppins", sans-serif !important;
   font-size: 1rem !important;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease !important;
 }
 
 #cage-name:focus,
@@ -1578,7 +1588,7 @@ body.light #cage-information {
 }
 
 #cage-form-6c970937 button[type="submit"] {
-  background-color: var(--cor-primaria) !important;
+  
   border: none !important;
   border-radius: 0.5rem !important;
   padding: 0.75rem 2rem !important;
