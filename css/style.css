@@ -1489,3 +1489,21 @@ body.dark .linhFinal {
         text-align: center;
     }
 }
+
+#cage-name{
+    display: none;
+    background-color: darkmagenta;
+    width: 100%;
+    height: 100%;
+}
+#cage-information{
+    display: none;
+    background-color: darkmagenta;
+    width: 100%;
+    height: 100%;
+}
+#cage-form-6c970937{
+    background-color: rgb(255, 217, 255);
+    width: 100%;
+    height: 100%;
+}
