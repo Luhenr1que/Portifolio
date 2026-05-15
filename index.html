@@ -428,7 +428,7 @@
 
       <section>
 
-        <iframe
+        <!-- <iframe
   id="cage-form-6c970937"
   data-cage-src="https://forms-d.cage.so/f/6c970937-a60f-4b32-86d7-00a0e05a660f"
   width="100%"
@@ -473,65 +473,9 @@
 
   setTimeout(function() { clearInterval(check); }, 10000);
 })(document);
-</script>
+</script> -->
 
-
-# Iframe
-
-<iframe
-  id="cage-form-f783a0f8"
-  data-cage-src="https://forms-d.cage.so/f/f783a0f8-4095-4a39-81ed-bf52c286252c"
-  width="100%"
-  height="500"
-  frameborder="0"
-  style="background: #fafafa; border-radius: 4px;"
-></iframe>
-# Script Loader
-
-<script>
-(function(d, w) {
-  var frame = d.getElementById('cage-form-f783a0f8');
-  if (!frame) return;
-
-  var doc = frame.contentWindow.document;
-  doc.open();
-  doc.write('<body style="margin:0;"><script src="' + frame.dataset.cageSrc + '" data-form><\/script><\/body>');
-  doc.close();
-
-  w.addEventListener('message', function(event) {
-    if (event.data && event.data.type === 'cage-redirect' && event.data.url) {
-      w.location.href = event.data.url;
-    }
-  });
-})(document, window);
-</script>
-# Script Ping
-
-<script>
-(function(d) {
-  var frame = d.getElementById('cage-form-f783a0f8');
-  if (!frame) return;
-
-  var formId = 'f783a0f8-4095-4a39-81ed-bf52c286252c';
-  var doc = frame.contentWindow.document;
-
-  var check = setInterval(function() {
-    if (doc.querySelector('form') || doc.getElementsByTagName('iframe').length > 0) {
-      clearInterval(check);
-      fetch('https://forms-d.cage.so/api/forms/' + formId + '/ping', {
-        method: 'POST',
-        mode: 'no-cors'
-      });
-    }
-  }, 500);
-
-  setTimeout(function() { clearInterval(check); }, 10000);
-})(document);
-</script>
-
-
-<div id="cage-form-6c970937"></div>
-<script src="https://forms-d.cage.so/f/6c970937-a60f-4b32-86d7-00a0e05a660f" data-form data-container="cage-form-6c970937"></script>
+<div id="cage-form-6c970937"></div><script src="https://forms-d.cage.so/f/6c970937-a60f-4b32-86d7-00a0e05a660f" data-form data-container="cage-form-6c970937"></script>
       
     </div>
     <script src="./js/theme.js"></script>
