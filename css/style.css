@@ -1539,8 +1539,10 @@ body.dark .linhFinal {
   box-shadow: none !important;
 }
 
-body.dark #cage-name,
-body.dark #cage-information {
+body.dark #name-02ec6a01-93c5-4d1c-9b17-5fb60f47a590,
+body.dark #information-02ec6a01-93c5-4d1c-9b17-5fb60f47a590,
+body.dark #email-02ec6a01-93c5-4d1c-9b17-5fb60f47a590,
+body.dark #phone-02ec6a01-93c5-4d1c-9b17-5fb60f47a590 {
   width: 30vw !important;
   padding: 0.75rem 1rem !important;
   margin-bottom: 0.5rem !important;
@@ -1550,12 +1552,13 @@ body.dark #cage-information {
   color: #ffffff !important;
   font-family: "Poppins", sans-serif !important;
   font-size: 1rem !important;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
-body.light #cage-name,
-body.light #cage-information {
+
+body.light #name-02ec6a01-93c5-4d1c-9b17-5fb60f47a590,
+body.light #information-02ec6a01-93c5-4d1c-9b17-5fb60f47a590,
+body.light #email-02ec6a01-93c5-4d1c-9b17-5fb60f47a590,
+body.light #phone-02ec6a01-93c5-4d1c-9b17-5fb60f47a590 {
   width: 30vw !important;
   padding: 0.75rem 1rem !important;
   margin-bottom: 0.5rem !important;
@@ -1565,20 +1568,22 @@ body.light #cage-information {
   color: #131313 !important;
   font-family: "Poppins", sans-serif !important;
   font-size: 1rem !important;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 
-#cage-name:focus,
-#cage-information:focus {
+#name-02ec6a01-93c5-4d1c-9b17-5fb60f47a590:focus,
+#information-02ec6a01-93c5-4d1c-9b17-5fb60f47a590:focus,
+#email-02ec6a01-93c5-4d1c-9b17-5fb60f47a590:focus,
+#phone-02ec6a01-93c5-4d1c-9b17-5fb60f47a590:focus {
   outline: none !important;
   border-color: #9333ea !important;
   box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.2) !important;
 }
 
-#cage-name::placeholder,
-#cage-information::placeholder {
+#name-02ec6a01-93c5-4d1c-9b17-5fb60f47a590::placeholder,
+#information-02ec6a01-93c5-4d1c-9b17-5fb60f47a590::placeholder,
+#email-02ec6a01-93c5-4d1c-9b17-5fb60f47a590::placeholder,
+#phone-02ec6a01-93c5-4d1c-9b17-5fb60f47a590::placeholder {
   color: #9ca3af !important;
 }
 
